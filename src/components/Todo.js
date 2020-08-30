@@ -1,9 +1,18 @@
 import React, {useState} from 'react';
 
+import {RiCloseCircleLine} from 'react-icons/ri'
+import {TiEdit} from 'react-icons/ti'
+import { BsCheckCircle } from 'react-icons/bs';
+import { BsDashCircleFill } from 'react-icons/bs';
+
+import {useSpring, animated} from 'react-spring'
+
+
 export default function Todo(props) {
 
     const [isEditing, setEditing] = useState(false);
     const [newName, setNewName] = useState('');
+    const pop = useSpring({opacity: 1, from: {opacity: 0}})
 
     function handleChange(e) {
       setNewName(e.target.value);
@@ -31,25 +40,15 @@ export default function Todo(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="btn-group">
-          <button 
-            type="button" 
-            className="btn todo-cancel"
-            onClick={() => setEditing(false)}
-          >
-            Cancelar
-            <span className="visually-hidden">editando {props.name}</span>
-          </button>
-          <button type="submit" className="btn btn__primary todo-edit">
-            Salvar
-            <span className="visually-hidden">a tarefa {props.name}</span>
-          </button>
+        <div className="icon-group">
+          <button className="tooltip"><BsDashCircleFill className="btn-icon cancel" onClick={() => setEditing(false)}  /><span class="tooltiptext">Cancelar<span className="visually-hidden">edição da tarefa {props.name}</span></span></button>          
+          <button className="tooltip" type="submit"><BsCheckCircle  className="btn-icon save" /><span class="tooltiptext">Confirmar<span className="visually-hidden">edição da tarefa {props.name}</span></span></button>          
         </div>
       </form>
     );
     const viewTemplate = (
       <div className="stack-small">
-        <div className="c-cb">
+        <div className="c-cb">          
             <input
               id={props.id}
               type="checkbox"
@@ -60,28 +59,16 @@ export default function Todo(props) {
             <label className="todo-label" htmlFor={props.id}>
               {props.name}
             </label>
-          </div>
-          <div className="btn-group">
-            <button 
-              type="button" 
-              className="btn"
-              onClick={() => setEditing(true)}
-            >
-              Editar tarefa <span className="visually-hidden">{props.name}</span>
-            </button>
-            <button
-              type="button"
-              className="btn btn__danger"
-              onClick={() => props.deleteTask(props.id)}
-            >
-              Deletar tarefa <span className="visually-hidden">{props.name}</span>
-            </button>
+        </div>
+          <div className="btn-group icon-group">
+            <button className="tooltip"><TiEdit className="btn-icon edit" onClick={() => setEditing(true)}/><span class="tooltiptext" style={{top: "-30px"}}>Editar<span className="visually-hidden">{props.name}</span></span></button>            
+            <button className="tooltip"><RiCloseCircleLine className="btn-icon delete" onClick={() => props.deleteTask(props.id)}/><span class="tooltiptext" style={{top: "-30px"}}>Remover<span className="visually-hidden">{props.name}</span></span></button>            
           </div>
       </div>
     );
 
     return (
-      //utilizamos o conditional rendering do jsx para indicarmos qual UI queremos que seja exibida. se o valor de 'isEditing' for true então a UI de edição de task será exibida, do contrário a UI de visualização padrão será exibida
-    <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>
+      //utilizamos o conditional rendering do jsx para indicarmos qual UI queremos que seja exibida. se o valor de 'isEditing' for true então a UI de edição de task será exibida, do contrário a UI de visualização padrão será exibida      
+      <animated.div style={pop}><li className="todo">{isEditing ? editingTemplate : viewTemplate}</li></animated.div>              
     );
 }

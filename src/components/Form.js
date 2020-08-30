@@ -11,7 +11,6 @@ export default function Form(props) {
         setName(e.target.value)
     }
 
-
     //função acionada quando o usuário clica no botão 'ADD'
     function handleSubmit(e) {
         e.preventDefault();
@@ -35,9 +34,10 @@ export default function Form(props) {
           value={name}
           onChange={handleChange}
           placeholder="Insira uma nova tarefa"
+          maxLength="100"//limita o input à 100 caracteres
         />
         <button type="submit" className="btn btn__primary btn__lg">
-          Adicionar nova tarefa.
+          Adicionar tarefa
         </button>
       </form>
     )

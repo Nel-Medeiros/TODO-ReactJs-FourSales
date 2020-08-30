@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {nanoid} from 'nanoid';
 
+import FlipMove from 'react-flip-move';
+
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
-
 
 
 //criamos um objeto no qual cada valor é uma função. esses serão nossos filters buttons
@@ -93,6 +94,8 @@ function App(props) {
   const tasksNoun = taskList.length > 1 ? 'tarefas restantes' : 'tarefa restante';
   const headingText = `${taskList.length} ${tasksNoun}`;
 
+  
+
   return (
     <div className="todoapp stack-large">
       <h1>Lista de Tarefas</h1>
@@ -104,13 +107,15 @@ function App(props) {
         {headingText}
       </h2>
       <h4>Marque a caixa de texto em caso de tarefas pessoais.</h4>
+      
       <ul
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
-      >
-        {taskList}
-      </ul>
+      >  
+           
+        {taskList}  
+      </ul>      
     </div>
   );
 }
