@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TODO-ReactJs-FourSales/static/css/main.979562be.chunk.css",
+    "main.js": "/TODO-ReactJs-FourSales/static/js/main.e9be6474.chunk.js",
+    "main.js.map": "/TODO-ReactJs-FourSales/static/js/main.e9be6474.chunk.js.map",
+    "runtime-main.js": "/TODO-ReactJs-FourSales/static/js/runtime-main.2bc21035.js",
+    "runtime-main.js.map": "/TODO-ReactJs-FourSales/static/js/runtime-main.2bc21035.js.map",
+    "static/js/2.deb2da1e.chunk.js": "/TODO-ReactJs-FourSales/static/js/2.deb2da1e.chunk.js",
+    "static/js/2.deb2da1e.chunk.js.map": "/TODO-ReactJs-FourSales/static/js/2.deb2da1e.chunk.js.map",
+    "index.html": "/TODO-ReactJs-FourSales/index.html",
+    "precache-manifest.ef43dffdb11f36ded13a959a02b4cd63.js": "/TODO-ReactJs-FourSales/precache-manifest.ef43dffdb11f36ded13a959a02b4cd63.js",
+    "service-worker.js": "/TODO-ReactJs-FourSales/service-worker.js",
+    "static/css/main.979562be.chunk.css.map": "/TODO-ReactJs-FourSales/static/css/main.979562be.chunk.css.map",
+    "static/js/2.deb2da1e.chunk.js.LICENSE.txt": "/TODO-ReactJs-FourSales/static/js/2.deb2da1e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2bc21035.js",
+    "static/js/2.deb2da1e.chunk.js",
+    "static/css/main.979562be.chunk.css",
+    "static/js/main.e9be6474.chunk.js"
+  ]
+}
