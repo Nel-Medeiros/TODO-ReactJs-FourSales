@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {nanoid} from 'nanoid';
 
-import FlipMove from 'react-flip-move';
-
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
